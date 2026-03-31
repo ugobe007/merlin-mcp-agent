@@ -624,6 +624,21 @@ async function main() {
       res.json({ status: 'ok', server: 'merlin-mcp-agent', version: '1.0.0' });
     });
 
+    // Discord Interactions Endpoint — handles verification ping + slash command routing
+    // Set this URL in Discord Developer Portal → General Information → Interactions Endpoint URL:
+    // https://merlin-mcp-agent-production.up.railway.app/discord/interactions
+    app.post('/discord/interactions', (req, res) => {
+      const { type } = req.body as { type: number };
+      // Type 1 = PING (Discord verifying the endpoint)
+      if (type === 1) {
+        res.json({ type: 1 }); // PONG
+        return;
+      }
+      // All other interactions handled by the Gateway bot (bot.ts)
+      // This endpoint just satisfies the Developer Portal requirement
+      res.status(400).json({ error: 'Use the Gateway bot for interactions' });
+    });
+
     app.listen(parseInt(port), () => {
       console.log(`🧙 Merlin MCP Sales Agent running on HTTP port ${port}`);
     });
