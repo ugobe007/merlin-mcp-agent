@@ -5,7 +5,7 @@
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "merlin-mcp": "./dist/index.js"
+    "merlin-mcp": "dist/index.js"
   },
   "keywords": [
     "mcp",
@@ -30,7 +30,7 @@
   "homepage": "https://merlinpro.energy",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ugobe007/merlin-mcp-agent"
+    "url": "git+https://github.com/ugobe007/merlin-mcp-agent.git"
   },
   "bugs": {
     "url": "https://github.com/ugobe007/merlin-mcp-agent/issues"
