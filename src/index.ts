@@ -392,6 +392,7 @@ function getBenchmarks(input: z.infer<typeof BenchmarkLookupSchema>) {
 // MCP SERVER SETUP
 // ============================================================
 
+function createServer() {
 const server = new McpServer({
   name: 'merlin-sales-agent',
   version: '1.0.0',
@@ -595,6 +596,9 @@ Make it confident, specific, and memorable. End with a clear ask.`,
   })
 );
 
+  return server;
+} // end createServer()
+
 // ============================================================
 // START SERVER
 // ============================================================
@@ -608,10 +612,11 @@ async function main() {
     app.use(express.json());
 
     app.post('/mcp', async (req, res) => {
+      const srv = createServer();
       const transport = new StreamableHTTPServerTransport({
         sessionIdGenerator: undefined,
       });
-      await server.connect(transport);
+      await srv.connect(transport);
       await transport.handleRequest(req, res, req.body);
     });
 
@@ -624,8 +629,9 @@ async function main() {
     });
   } else {
     // stdio mode — for Claude Desktop / npx usage
+    const srv = createServer();
     const transport = new StdioServerTransport();
-    await server.connect(transport);
+    await srv.connect(transport);
     console.error('🧙 Merlin MCP Sales Agent running on stdio');
   }
 }
