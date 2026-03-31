@@ -22,7 +22,9 @@
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { z } from 'zod';
+import express from 'express';
 import 'dotenv/config';
 
 // ============================================================
@@ -598,9 +600,34 @@ Make it confident, specific, and memorable. End with a clear ask.`,
 // ============================================================
 
 async function main() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error('🧙 Merlin MCP Sales Agent running on stdio');
+  const port = process.env.PORT;
+
+  if (port) {
+    // HTTP mode — for Railway / Smithery deployment
+    const app = express();
+    app.use(express.json());
+
+    app.post('/mcp', async (req, res) => {
+      const transport = new StreamableHTTPServerTransport({
+        sessionIdGenerator: undefined,
+      });
+      await server.connect(transport);
+      await transport.handleRequest(req, res, req.body);
+    });
+
+    app.get('/health', (_req, res) => {
+      res.json({ status: 'ok', server: 'merlin-mcp-agent', version: '1.0.0' });
+    });
+
+    app.listen(parseInt(port), () => {
+      console.log(`🧙 Merlin MCP Sales Agent running on HTTP port ${port}`);
+    });
+  } else {
+    // stdio mode — for Claude Desktop / npx usage
+    const transport = new StdioServerTransport();
+    await server.connect(transport);
+    console.error('🧙 Merlin MCP Sales Agent running on stdio');
+  }
 }
 
 main().catch((err) => {
