@@ -30,10 +30,10 @@
   "homepage": "https://merlinpro.energy",
   "repository": {
     "type": "git",
-    "url": "https://github.com/merlinpro/merlin-mcp-agent"
+    "url": "https://github.com/ugobe007/merlin-mcp-agent"
   },
   "bugs": {
-    "url": "https://github.com/merlinpro/merlin-mcp-agent/issues"
+    "url": "https://github.com/ugobe007/merlin-mcp-agent/issues"
   },
   "license": "MIT",
   "author": {

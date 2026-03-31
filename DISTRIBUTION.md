@@ -24,7 +24,7 @@ cd /tmp/merlin-mcp-agent
 git init
 git add .
 git commit -m "feat: initial Merlin Energy MCP server v1.0.0"
-git remote add origin https://github.com/merlinpro/merlin-mcp-agent
+git remote add origin https://github.com/ugobe007/merlin-mcp-agent
 git push -u origin main
 ```
 
@@ -228,7 +228,7 @@ npm install xmcp
 2. Add the listing line to the appropriate section (Finance or Energy):
 
 ```markdown
-- [Merlin Energy](https://github.com/merlinpro/merlin-mcp-agent) — AI-powered BESS quoting and energy sales intelligence. TrueQuote™ estimates, lead qualification, competitor battle cards, and proposal generation for commercial energy storage. 🏢
+- [Merlin Energy](https://github.com/ugobe007/merlin-mcp-agent) — AI-powered BESS quoting and energy sales intelligence. TrueQuote™ estimates, lead qualification, competitor battle cards, and proposal generation for commercial energy storage. 🏢
 ```
 
 3. Open a PR — use the content from: `mcp-server/registry/awesome-mcp-pr.md`
@@ -364,8 +364,9 @@ npm publish --access public
 # 3. Submit to mcp.so (GitHub issue)
 open https://github.com/chatmcp/mcpso/issues/new
 
-# 4. Submit to glama.ai
+# 4. Submit to glama.ai (paste repo URL)
 open https://glama.ai/mcp/servers
+# URL: https://github.com/ugobe007/merlin-mcp-agent
 
 # 5. Submit to mcpservers.org
 open https://mcpservers.org/submit

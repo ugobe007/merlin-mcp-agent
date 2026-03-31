@@ -12,7 +12,7 @@
 Merlin Energy MCP — BESS Quoting & Sales Intelligence
 
 ## GitHub Repository
-https://github.com/merlinpro/merlin-mcp-agent
+https://github.com/ugobe007/merlin-mcp-agent
 
 ## npm Package
 https://www.npmjs.com/package/@merlinpro/mcp-agent

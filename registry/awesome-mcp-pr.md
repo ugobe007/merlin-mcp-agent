@@ -8,7 +8,7 @@ Add Merlin Energy MCP — BESS quoting & sales intelligence
 
 This PR adds the Merlin Energy MCP server to the Finance / Business category.
 
-**Server:** [Merlin Energy — BESS Quoting & Sales Intelligence](https://github.com/merlinpro/merlin-mcp-agent)
+**Server:** [Merlin Energy — BESS Quoting & Sales Intelligence](https://github.com/ugobe007/merlin-mcp-agent)
 
 The Merlin Energy MCP is the first Model Context Protocol server for commercial
 battery energy storage (BESS) quoting. It gives AI assistants 6 tools to act as

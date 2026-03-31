@@ -5,7 +5,7 @@
 ---
 
 ## GitHub Repository URL to Submit
-https://github.com/merlinpro/merlin-mcp-agent
+https://github.com/ugobe007/merlin-mcp-agent
 
 ## Server Name (displayed on glama.ai)
 Merlin Energy — BESS Quoting & Sales Intelligence
